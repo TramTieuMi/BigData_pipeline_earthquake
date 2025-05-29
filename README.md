@@ -11,49 +11,32 @@ In this layer, raw data is ingested directly from the Earthquake API without any
 
 **Silver Layer – Data Cleaning and Transformation**
 The Silver layer focuses on transforming and cleaning the data for analysis. Key processing steps include:
-
 Parsing and selecting relevant fields needed for downstream analytics.
-
 Converting timestamp fields from epoch format to human-readable datetime.
-
 Handling missing values and standardizing column formats.
-
 Preparing structured data that aligns with business and analytical requirements.
-
 This stage ensures that the data is well-organized, clean, and ready for enrichment and modeling.
 
 **Gold Layer – Data Enrichment and Business Logic**
 The Gold layer applies business rules and logic to prepare the data for reporting and advanced analytics. In this project, for example, we introduce a categorization logic for earthquake severity based on the sig (significance) value:
 
 If sig < 100, label as Low
-
 If 100 ≤ sig < 500, label as Moderate
-
 If sig ≥ 500, label as High
-
 This enriched dataset is then stored in a format optimized for querying and visualization.
 
 **Pipeline Orchestration with Azure Data Factory**
-
 To automate the entire data pipeline, Azure Data Factory is used to:
-
 Schedule data ingestion to run daily or at custom intervals.
-
 Trigger Databricks notebooks to execute each processing stage (Bronze → Silver → Gold).
-
 Manage dependencies and monitor pipeline execution status.
-
 This provides an end-to-end automation flow for data processing in production-like scenarios.
 
 **Data Querying and Visualization with Azure Synapse & Power BI**
 Once the data reaches the Gold layer:
-
 Azure Synapse Analytics is used to create external tables, views, and query-ready datasets.
-
 These curated datasets are then connected to Power BI for interactive dashboards and analytical reporting.
-
 This allows stakeholders to explore earthquake trends, severity levels, and regional insights visually.
-
 
 
 **Vietnamese Version**
